@@ -18,7 +18,7 @@ toyPackage           # 包名，也是根目录名
 
 我们用一个具体的例子来说明，假设我们希望计算一个 $m \times n$ 矩阵的元素和，我们需要做的事情：
 
-1. 在 `DESCRIPTION` 中添加包的描述信息
+1. 在 `DESCRIPTION` 中添加包的描述信息（（注意 `R` 包的命名规则）
 2. 在 `NAMESPACE` 中添加包的命名空间信息
 3. 在 `src/code.cpp` 中编写 `c++` 函数
 4. 在 `R/code.R` 中编写 `R` 函数调用 `c++` 函数
@@ -26,11 +26,11 @@ toyPackage           # 包名，也是根目录名
 做好以后，在根目录下运行如下脚本：
 
 ```bash
-R -e "Rcpp::compileAttributes()"
-R -e "roxygen2::roxygenise()"
+R -e "Rcpp::compileAttributes()" # 编译 `c++` 函数
+R -e "roxygen2::roxygenise()"    # 生成 `man` 目录下的 `code.Rd` 文件
 ```
 
-这样就生成了 `man` 目录下的 `code.Rd` 文件，然后编译安装 `R` 包（注意 `R` 包的命名规则）：
+这样就生成了 `man` 目录下的 `code.Rd` 文件，然后编译安装 `R` 包：
 
 ```bash
 cd .. ; R CMD build toyPackage
@@ -42,4 +42,10 @@ R CMD INSTALL toyPackage_0.1.0.tar.gz
 
 ```bash
 R -e "library(toyPackage)"
+```
+
+当提交到 `GitHub` 以后，可以通过 `remotes::install_github` 安装 `R` 包：
+
+```bash
+remotes::install_github("chia202/toyPackage")
 ```
