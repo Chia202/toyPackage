@@ -1,0 +1,4 @@
+useDynLib(toyPackage, .registration = TRUE)
+importFrom(Rcpp, sourceCpp)
+
+export(sum.matrix)
