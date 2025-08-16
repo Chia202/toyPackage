@@ -30,6 +30,8 @@ R -e "Rcpp::compileAttributes()" # 编译 `c++` 函数
 R -e "roxygen2::roxygenise()"    # 生成 `man` 目录下的 `code.Rd` 文件
 ```
 
+关于 `*.Rd` 说明文件：如果实现了 `Rcpp` 函数 `sum_matrix()` 和 `R` 函数 `sum.matrix()`，并且后者调用前者实现，假如不希望导出 `Rcpp` 函数，也不希望导出 `Rcpp` 函数的说明文档，那么不要在 `NAMESPACE` 中导出 `Rcpp` 函数，也不要在 `Rcpp` 函数声明前加上 `roxygen2` 注释，只要 `// [[Rcpp::export]]` 注释即可。
+
 这样就生成了 `man` 目录下的 `code.Rd` 文件，然后编译安装 `R` 包：
 
 ```bash

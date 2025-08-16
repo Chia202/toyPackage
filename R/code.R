@@ -5,7 +5,7 @@
 #' @return The sum of the elements of the matrix
 #' @examples
 #' X <- matrix(1:10, 2, 5)
-#' sum_matrix(X)
+#' sum.matrix(X)
 #' @export
 sum.matrix <- function(X, n_threads = 4) {
     sum_matrix(X, n_threads)
