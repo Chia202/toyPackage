@@ -1,5 +1,5 @@
-man/
-*.Rd
+# man/
+# *.Rd
 *.o
 *.so
 RcppExports.*
@@ -9,3 +9,9 @@ RcppExports.*
 .RData
 .Ruserdata
 .Rbuildignore
+*.Rcheck/
+*.dll
+*.tar.gz
+*.a
+.vscode/
+*.swp
